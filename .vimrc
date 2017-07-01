@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
+" =============================================================================
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -32,7 +33,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+
 " Configs
+" =============================================================================
 set backspace=2
 
 set ttyfast
@@ -49,30 +52,55 @@ endif
 
 set encoding=utf8
 
+" Remove backups and .swap
 set nobackup
 set nowb
 set noswapfile
 
+" Tabs to spaces
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
 
+" Show tabs and spaces as characters
+set list
+set listchars=tab:>-,trail:~
+
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Wrap at 80
 set textwidth=79
 set colorcolumn=80
 
-set number
+set number "Show line numbers
 set showmode
-
-set list
-set listchars=tab:>-,trail:~
 
 set splitbelow "Split the right way
 set splitright
+
+set wildmenu
+set showmatch "Parentheses/bracket highlighting
+
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+" turn off search highlight with <space>
+nnoremap <leader><space> :nohlsearch<CR>
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+" $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
 
 hi CursorColumn ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow gui=bold
 
