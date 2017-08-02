@@ -102,7 +102,20 @@ nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
+" set spelllang=en
+" set spell
+
+" Ctrl-left or ctrl-right to switch tabs
+" Alt-left or alt-right to move tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+
 hi CursorColumn ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow gui=bold
 
 set laststatus=2
 set pastetoggle=<F2>
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
